@@ -23,3 +23,34 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+h1, h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+.transactions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.transactions input,
+.transactions select,
+.transactions button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #bdc3c7;
+}
+
+.transactions button {
+    background-color: #490364;
+    color: white;
+    cursor: pointer;
+}
+
+.transactions button:hover {
+    background-color: #9b59b6;
+}
+
