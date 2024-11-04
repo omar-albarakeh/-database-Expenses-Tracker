@@ -39,7 +39,7 @@ function displayTransactions(filteredTransactions = transactions) {
             <p>${transaction.date}</p>
             <p>${transaction.notes}</p>
             <p>$${transaction.amount} </p>
-            <p>${transaction.type})</p>
+            <p>${transaction.type}</p>
             <button class="edit-button" onclick="editTransaction(${index})">Edit</button>
             <button class="delete-button" onclick="deleteTransaction(${index})">Delete</button> `;
         list.appendChild(transactionDiv);
