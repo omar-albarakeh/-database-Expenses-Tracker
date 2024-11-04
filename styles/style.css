@@ -44,13 +44,27 @@ h1, h2 {
     border: 1px solid #bdc3c7;
 }
 
-.transactions button {
+.card button {
     background-color: #490364;
     color: white;
     cursor: pointer;
 }
 
-.transactions button:hover {
+.card button:hover {
     background-color: #9b59b6;
 }
 
+.form-input, .card{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.form-input select,.card input,
+ .card button {
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    font-size: 1em;
+}
