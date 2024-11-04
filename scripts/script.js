@@ -47,12 +47,12 @@ function displayTransactions(filteredTransactions = transactions) {
     updateBudget();
 }
 
-transactionForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+function addTransaction(e) {
+    e.preventDefault();
     const notes = document.getElementById('notes').value;
     const amount = parseFloat(document.getElementById('amount').value);
     const type = document.getElementById('type').value;
-    const date = new Date().toLocaleDateString();
+    const date = new Date().toISOString().split('T')[0];
 
     if (!isNaN(amount) && notes.trim() !== '') {
         transactions.push({ date, notes, amount, type });
@@ -60,5 +60,6 @@ transactionForm.addEventListener('submit', (event) => {
         displayTransactions();
         transactionForm.reset();
     }
-});
+}
 
+transactionForm.addEventListener('submit', addTransaction);
