@@ -74,4 +74,23 @@ function editTransaction(index) {
     document.getElementById('type').value = transaction.type;
     deleteTransaction(index);
 }
+
+function applyFilters() {
+    const minAmount = parseFloat(document.getElementById('min-amount').value) || 0;
+    const maxAmount = parseFloat(document.getElementById('max-amount').value) || Infinity;
+    const type = document.getElementById('filter-type').value;
+    const date = document.getElementById('filter-date').value;
+    const notes = document.getElementById('filter-notes').value.toLowerCase();
+
+    const filteredTransactions = transactions.filter(transaction => {
+        const matchesAmount = transaction.amount >= minAmount && transaction.amount <= maxAmount;
+        const matchesType = type === 'all' || transaction.type === type;
+        const matchesDate = !date || transaction.date === date;
+        const matchesNotes = transaction.notes.toLowerCase().includes(notes);
+        return matchesAmount && matchesType && matchesDate && matchesNotes;
+    });
+
+    displayTransactions(filteredTransactions);
+}
 transactionForm.addEventListener('submit', addTransaction);
+document.getElementById('apply-filters').addEventListener('click', applyFilters);
