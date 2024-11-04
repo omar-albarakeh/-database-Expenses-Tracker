@@ -31,6 +31,21 @@ function updateBudget() {
         totalBudget.classList.add('neutral');
     }
 }
+function displayTransactions(filteredTransactions = transactions) {
+    list.innerHTML = '';
+    filteredTransactions.forEach((transaction, index) => {
+        const transactionDiv = document.createElement('div');
+        transactionDiv.innerHTML = `
+            <p>${transaction.date}</p>
+            <p>${transaction.notes}</p>
+            <p>$${transaction.amount} </p>
+            <p>${transaction.type})</p>
+            <button class="edit-button" onclick="editTransaction(${index})">Edit</button>
+            <button class="delete-button" onclick="deleteTransaction(${index})">Delete</button> `;
+        list.appendChild(transactionDiv);
+    });
+    updateBudget();
+}
 
 transactionForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -42,9 +57,8 @@ transactionForm.addEventListener('submit', (event) => {
     if (!isNaN(amount) && notes.trim() !== '') {
         transactions.push({ date, notes, amount, type });
         updateLocalStorage();
-        updateBudget();
+        displayTransactions();
         transactionForm.reset();
     }
 });
 
-displayTransactions();
