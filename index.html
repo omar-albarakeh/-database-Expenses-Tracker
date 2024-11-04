@@ -6,6 +6,20 @@
     <title>Expense Tracker</title>
 </head>
 <body>
-    
+    <div class="card">
+        <div class="card-part1">
+            <h1>Expense Tracker</h1>
+            <h2>Total Budget: $</h2>
+            <form id="transaction-form" class="transactions">
+                <input type="text" id="notes" placeholder="Notes" required>
+                <input type="number" id="amount" placeholder="Amount" required>
+                <select id="type">
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+                <button type="submit">Add Transaction</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
