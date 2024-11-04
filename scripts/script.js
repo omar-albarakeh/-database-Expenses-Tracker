@@ -94,3 +94,4 @@ function applyFilters() {
 }
 transactionForm.addEventListener('submit', addTransaction);
 document.getElementById('apply-filters').addEventListener('click', applyFilters);
+displayTransactions();
