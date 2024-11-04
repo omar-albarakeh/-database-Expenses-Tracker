@@ -61,5 +61,17 @@ function addTransaction(e) {
         transactionForm.reset();
     }
 }
+function deleteTransaction(index) {
+    transactions.splice(index, 1);
+    updateLocalStorage();
+    displayTransactions();
+}
 
+function editTransaction(index) {
+    const transaction = transactions[index];
+    document.getElementById('notes').value = transaction.notes;
+    document.getElementById('amount').value = transaction.amount;
+    document.getElementById('type').value = transaction.type;
+    deleteTransaction(index);
+}
 transactionForm.addEventListener('submit', addTransaction);
